@@ -1,0 +1,33 @@
+
+/** \mainpage PGR framework documentation
+ *
+ * PGR-framework is a set of 3rd party libraries that are used throughout the Computer Graphics courses (A7B39PGR, AE4M39PGR) to work with OpenGL (Win). The framework contains header files, .lib, and .dll files of the following libraries:
+ * - FREEGLUT 3.0.0 - The OpenGL Utility Toolkit - <a href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/</a>
+ * - glLoadGen - OpenGL Loader Generator - <a href="https://bitbucket.org/alfonse/glloadgen/wiki/Home">https://bitbucket.org/alfonse/glloadgen/wiki/Home</a>
+ * - GLM 0.9.8.5 - OpenGL Mathematics Library - <a href=" http://glm.g-truc.net/">  http://glm.g-truc.net/</a>
+ * - Assimp 4.1.0 - Open Asset Import Library - <a href="http://assimp.sourceforge.net/">http://assimp.sourceforge.net/</a>
+ * - DevIL 1.8.0 - Image Library - <a href="http://openil.sourceforge.net/">http://openil.sourceforge.net/</a>
+ * - AntTweakBar 1.16 - light and intuitive graphical user interface - <a href="http://anttweakbar.sourceforge.net/">http://anttweakbar.sourceforge.net/</a>
+ * - pgr - PGR library - contains some useful functions
+ *
+ * This manual is divided in the following sections:
+ * - \subpage cs_setup
+ * - \subpage en_setup
+ * 
+ * Continue to the documentation of the \link pgr pgr namespace.\endlink
+
+ */
+
+//-----------------------------------------------------------
+
+/** \page en_setup How to setup a project in MS Visual Studio 2010
+ * \htmlinclude vssetup_en.html
+
+ */
+
+//-----------------------------------------------------------
+
+/** \page cs_setup Jak nastavit projekt pro MS Visual Studio 2010
+ * \htmlinclude vssetup_cs.html
+
+ */

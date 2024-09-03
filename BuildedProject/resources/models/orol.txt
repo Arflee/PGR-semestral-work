@@ -1,0 +1,11 @@
+#DownloadModelFormat:	3DS
+#GeometryFile: 		orol.3DS
+#MaterialFile: 		orol.3DS
+#PreviewFile: 		orol.jpg
+#DownloadedFromURL:   	Domaci archiv modelov
+#DateOfDownload:   	25.2.2005            
+#CreatedBy:  		Maros Michna
+#CreatedIn:   		3D Studio MAX R2
+#UploadedBy: 		Martin Vanko
+#Description: 		Model letiaceho orola
+#NumberOfPolygons: 	1502

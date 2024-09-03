@@ -1,0 +1,70 @@
+﻿
+<h2>Jak nastavit projekt pro MS Visual Studio 2010 (Win7, jako např. v laboratoři KN:E-311)</h2>
+<p>Nastavení pro ostatní studia a platformy je obdobné, pokud budete psát aplikace čistě, budou zdrojové kódy přenositelné minimálně i na Linux a Mac.
+Zdrojové kódy pgr-framework jsou testované pod Windows + VS a Linux + gcc.</p>
+<p><a href="#shrnuti">Shrnutí všech nastavení</a> je na konci stránky. </p>
+<p>Tomáš Barák a Petr Felkel</p>
+<h3>PGR Framework a struktura projektových adresářů </h3>
+<p>PGR Framework je základní sada knihoven pro práci s OpenGL (Win). <br />
+Framework obsahuje hlavičkové soubory, .lib a .dll soubory k následujícím knihovnám:</p>
+<ul>
+  <li> <em>FREEGLUT</em> - The OpenGL Utility Toolkit - <a href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/ </a></li>
+  <!-- <li> <em>GLEW</em> - The OpenGL Extension Wrangler Library - <a href="http://glew.sourceforge.net/"> http://glew.sourceforge.net/</a></li> -->
+  <li> <em>glLoadGen</em> - OpenGL Loader Generator - <a href="https://bitbucket.org/alfonse/glloadgen/wiki/Home"> https://bitbucket.org/alfonse/glloadgen/wiki/Home</a></li>
+  <li> <em>Assimp</em> - Open Asset Import Library - <a href="http://assimp.sourceforge.net/">http://assimp.sourceforge.net/</a></li>
+  <li> <em>DevIL</em> - Image Library - <a href="http://openil.sourceforge.net/">http://openil.sourceforge.net/</a></li>
+  <li> <em>pgr</em> - PGR knihovna - obsahuje pár užitečných funkcí a závislosti na další knihovny</li>
+</ul>
+<p class="uipath">PGR framework rozbalte do zvolené složky, v návodu používáme <strong>h:\pgr</strong>.</p>
+
+<h3>Nastavení systémových proměnných</h3>
+<p>Pro snadný přenos projektu mezi uživateli používáme systemové proměnné.
+Cestu k rozbalenému frameworku uložíme do proměnné <strong>PGR_FRAMEWORK_ROOT</strong>.</p>
+<p>Pro správný běh programů je  potřeba přidat cestu k .dll souborum  pgr-frameworku do systemove proměnné <strong>PATH</strong>.
+<p align="center"><img src="img_cs/01-env1.png" /></p>
+<p align="center">Rychlý přístup do proměnných prostředí přes vyhledávání ve Win 7. </p>
+<p align="left">Nebo postupem: klik pravým tlačítkem na ikoně Počítač -&gt; Vlastnosti -&gt; Upřesnit nastavení systému -&gt; karta Upřesnit -&gt;Proměnné prostředí </p>
+<p>&nbsp;</p>
+<p align="center">Vytvoříme celkem dvě proměnné v sekci Uživatelské proměnné</p>
+<p align="center"><img src="img_cs/01-env2.png" /></p>
+<p align="center">Nastavujeme proměnnou PGR_FRAMEWORK_ROOT</p>
+<p align="center"><img src="img_cs/01-env3.png" /></p>
+<p align="center">Nastavujeme proměnnou PATH</p>
+<p align="center"><img src="img_cs/01-env4.png" /></p>
+<p>&nbsp;</p>
+<h2>Založení projektu ve Visual studiu 2010</h2>
+<p>Po prvním spuštění Vás VS vyzve k nastavení výchozího prostředí, zvolíme C++.</p>
+<p align="center"><img src="img_cs/02-firstVS.png" /></p>
+<p>Projekty vytváříme jako prázdné konzolové C/C++ aplikace.</p>
+<p align="center"><img src="img_cs/03-prj1.png" /></p>
+<p align="center"><img src="img_cs/04-prj2.png" /></p>
+<p align="center"><img src="img_cs/05-prj3.png" /></p>
+<p align="center"><img src="img_cs/06-prj4.png" /></p>
+<h3>Nastavení cest pro PGR framework </h3>
+<p align="center"><img src="img_cs/07-prop.png" /></p>
+<p align="center"><img src="img_cs/08-incl.png" /></p>
+<p>Pokud tam volba C/C++ není, přidejte nejdříve do projektu nějaké C/C++ soubory.</p>
+<!-- <p align="center"><img src="img_cs/09-prepr.png" /></p>
+<p>&nbsp;</p> -->
+<p align="center"><img src="img_cs/10-ldir.png" /></p>
+<p align="center"><img src="img_cs/11-libs-debug.png" /></p>
+<p align="center"><img src="img_cs/11-libs-release.png" /></p>
+<p>Kvůli problémům s jmény souboru je kvůli knihovne DevIL lepší vypnout UNICODE:</p>
+<p align="center"><img src="img_cs/12-charset.png" /></p>
+<h2><a name="shrnuti" id="shrnuti"></a>Shrnutí všech nastavení</h2>
+<ul>
+  <li>Zvolit adresář pro projekty - např. <strong>H:\pgr</strong>
+    <ul>
+      <li>Do tohoto adresáře rozbalit podadresář <strong>pgr-framework </strong></li>
+      <li>Nastavit systémovou proměnnou <strong>PGR_FRAMEWORK_ROOT</strong> a <strong>PATH</strong></li>
+    </ul>
+  </li>
+  <li>V nastaveni projektu ve VisualStudio 2010 (nahore zvoleno <em>All Configurations</em>) přidat:
+    <ul>
+      <li>C++ -&gt; General -&gt; Additional Include Directories: <strong>$(PGR_FRAMEWORK_ROOT)include</strong></li>
+      <li>Linker -&gt; General -&gt; Additional Include Directories: <strong>$(PGR_FRAMEWORK_ROOT)lib</strong> </li>
+      <li>Linker -&gt; Input -&gt; Additional Dependencies: přidat v <em>Debug</em> konfiguraci: <strong>pgr<span class="style2">d</span>.lib;</strong>, v <em>Release</em> konfiguraci přidat: <strong>pgr.lib;</strong></li>
+      <li>Configuration Properties -&gt; General -&gt; Character Set -&gt; Not Set (zrusi podporu UNICODE) - Kvůli problémům se jmény souborů v knihovne DevIL na některých systémech.</li>
+    </ul>
+  </li>
+</ul>

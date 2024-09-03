@@ -1,0 +1,10 @@
+newmtl windmill2:windmill_001_lopatky_COL_jpg
+illum 4
+Kd 1.00 1.00 1.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd windmill_001_lopatky_COL.jpg
+map_Ka windmill_001_lopatky_COL.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 1.30

@@ -1,0 +1,75 @@
+﻿
+<h2>How to setup a project in MS Visual Studio 2010 (Win7, computer room KN:E-311)</h2>
+<p>Setup for other Visual Studio versions and platforms is quite similar. Additionally, if you will use proper coding style then source code could be easily ported at least to Linux and Mac platforms.
+PGR-framework source codes were tested on the following platforms: Windows + Visual Studio and Linux + gcc.</p>
+<p><a href="#summary">Summary of all settings</a> is available at the end of this page.</p>
+<p>Tomáš Barák, Petr Felkel, and Jaroslav Sloup</p>
+<h3>PGR-framework and its folders structure</h3>
+<p>PGR-framework is a set of 3rd party libraries that we will use throughout this course to work with OpenGL (Win).<br />
+The framework contains header files, .lib, and .dll files of the following libraries:</p>
+<ul>
+  <li> <em>FREEGLUT</em> - The OpenGL Utility Toolkit - <a href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/</a></li>
+  <!-- <li> <em>GLEW</em> - The OpenGL Extension Wrangler Library - <a href="http://glew.sourceforge.net/"> http://glew.sourceforge.net/</a></li> -->
+  <li> <em>glLoadGen</em> - OpenGL Loader Generator - <a href="https://bitbucket.org/alfonse/glloadgen/wiki/Home"> https://bitbucket.org/alfonse/glloadgen/wiki/Home</a></li>
+  <li> <em>GLM</em> - OpenGL Mathematics Library - <a href=" http://glm.g-truc.net/">  http://glm.g-truc.net/</a></li>
+  <li> <em>Assimp</em> - Open Asset Import Library - <a href="http://assimp.sourceforge.net/">http://assimp.sourceforge.net/</a></li>
+  <li> <em>DevIL</em> - Image Library - <a href="http://openil.sourceforge.net/">http://openil.sourceforge.net/</a></li>
+  <li> <em>pgr</em> - PGR library - contains some useful functions</li>
+</ul>
+<p class="uipath">PGR-framework should be extracted into a selected folder, in this "howto" we will use <strong>h:\pgr</strong>.</p>
+
+<h3>Setting environment variables in Windows 7</h3>
+<p>To achieve maximum portability of the framework across wide range of platforms and users we use environment variables. 
+Environment variable <strong>PGR_FRAMEWORK_ROOT</strong> should be set to the path to the folder containing extracted framework.</p>
+<p>To ensure executability of your projects you have to add the path to the
+.dll files of the PGR-framework to the system environment variable named <strong>PATH</strong>.</p>
+
+<p align="center"><img src="img_en/01-env1.png" /></p>
+<p align="center">Fast access to the environment variables using the "Search programs and files" box on the Start menu in Win 7.</p>
+<p align="left">Or you can perform the following actions:
+
+Use right mouse click Start -&gt; Computer -&gt; "System properties" -&gt; "Advanced system settings" -&gt; “Advanced” tab -&gt; “Environment Variables …” </p>
+<p>&nbsp;</p>
+<p align="center">We are going to create/modify two environment variables in section "User variables for ..."</p>
+<p align="center"><img src="img_en/01-env2.png" /></p>
+<p align="center">Setting of the PGR_FRAMEWORK_ROOT environment variable (use New button to create a new environment variable)</p>
+<p align="center"><img src="img_en/01-env3.png" /></p>
+<p align="center">Setting of the PATH environment variable. If the PATH variable is still unset then use New button to create a new environment variable (see left image), othewrise use Edit button to modify existing variable, in this case just append at the end of PATH value "; %PGR_FRAMEWORK_ROOT%bin" (see image on the right)</p>
+<p align="center"><img src="img_en/01-env4.png" /> &nbsp; <img src="img_en/01-env4_edit.png" /></p>
+<p>&nbsp;</p>
+<h2>Creation of a new project in Visual studio 2010</h2>
+<p>If you are running Visual Studio for the first time then you will be aked to choose your "default enviroment settings", we recommend you to use "Visual C++ Development Settings" choice.</p>
+<p align="center"><img src="img_en/02-firstVS.png" /></p>
+<p>Type of newly created projects have to be set up to "Visual C++ Projects" -&gt; "Win32" -&gt; "Win32 Console Project".</p>
+<p align="center"><img src="img_en/03-prj1.png" /></p>
+<p align="center"><img src="img_en/04-prj2.png" /></p>
+<p align="center"><img src="img_en/05-prj3.png" /></p>
+<p align="center"><img src="img_en/06-prj4.png" /></p>
+<h3>Setting path to the PGR-framework</h3>
+<p align="center"><img src="img_en/07-prop.png" /></p>
+<p align="center"><img src="img_en/08-incl.png" /></p>
+<p>If the section "C/C++" is missing then you have to add any C/C++ file to the project at first.</p>
+<!-- <p align="center"><img src="img_en/09-prepr.png" /></p>
+<p>&nbsp;</p> -->
+<p align="center"><img src="img_en/10-ldir.png" /></p>
+<p align="center"><img src="img_en/11-libs-debug.png" /></p>
+<p align="center"><img src="img_en/11-libs-release.png" /></p>
+<p>To avoid some filenames conflicts due to the use of DevIL library we recommend you to disable UNICODE:</p>
+<p align="center"><img src="img_en/12-charset.png" /></p>
+<h2><a name="summary" id="summary"></a>Summary of all settings</h2>
+<ul>
+  <li>Choose folder for the projects - e.g. <strong>H:\pgr</strong>
+    <ul>
+      <li>Extract the PGR-framework into its subfolder named <strong>pgr-framework</strong></li>
+      <li>Setup the environment variables <strong>PGR_FRAMEWORK_ROOT</strong> to <strong>H:\pgr\pgr-framework\</strong> and <strong>PATH</strong></li> to <strong>%PGR_FRAMEWORK_ROOT%bin</strong>
+    </ul>
+  </li>
+  <li>Set up Visual Studio 2010 (select <em>All Configurations</em>):
+    <ul>
+      <li>C++ -&gt; General -&gt; Additional Include Directories: <strong>$(PGR_FRAMEWORK_ROOT)include</strong></li>
+      <li>Linker -&gt; General -&gt; Additional Include Directories: <strong>$(PGR_FRAMEWORK_ROOT)lib</strong> </li>
+      <li>Linker -&gt; Input -&gt; Additional Dependencies: add in <em>Debug</em> configuration: <strong>pgr<span class="style2">d</span>.lib;</strong>, in <em>Release</em> configuration add: <strong>pgr.lib;</strong></li>
+      <li>Configuration Properties -&gt; General -&gt; Character Set -&gt; Not Set (disable UNICODE support) - to avoid name conflicts in DevIL library on some platforms.</li>
+    </ul>
+  </li>
+</ul>

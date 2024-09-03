@@ -1,0 +1,40 @@
+newmtl base_standSG
+illum 4
+Kd 0.12 0.26 0.10
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.09 0.09 0.09
+Ns 360.04
+newmtl greenFBXASC032ballsFBXASC032andFBXASC032ribbonsSG
+illum 4
+Kd 0.08 0.33 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.18 0.33 0.08
+Ns 179.02
+newmtl greenFBXASC032ballsFBXASC032andFBXASC032ribbonsSG1
+illum 4
+Kd 0.83 0.83 0.83
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.31 0.31 0.31
+Ns 510.00
+newmtl leavesSG
+illum 4
+Kd 0.16 0.25 0.16
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 1022.00
+newmtl redFBXASC032ballsSG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 0.00 0.00
+Ns 1022.00
